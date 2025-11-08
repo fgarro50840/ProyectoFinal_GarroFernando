@@ -7,7 +7,7 @@ namespace ProyectoFinal_GarroFernando.Models
     {
 
         public int Id { get; set; }
-        [Required(ErrorMessage = "El estudiante es obligatorio.")]]
+        [Required(ErrorMessage = "El estudiante es obligatorio.")]
         public int EstudianteId { get; set; }
         [ValidateNever]
         public Estudiante Estudiante { get; set; }

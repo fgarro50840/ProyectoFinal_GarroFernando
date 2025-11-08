@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_GarroFernando.Data;
+using ProyectoFinal_GarroFernando.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -25,12 +25,5 @@ namespace ProyectoFinal_GarroFernando.Models
         [ValidateNever]
         public Carrera Carrera { get; set; }
 
-        [ValidateNever]
-        public ICollection<CursoPrerrequisito> Requisitos { get; set; }
-
-        [ValidateNever]
-        public ICollection<CursoPrerrequisito> RequisitoDe { get; set; }
-
-
     }
 }

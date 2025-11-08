@@ -13,7 +13,6 @@ namespace ProyectoFinal_GarroFernando.Data
 
         public DbSet<Carrera> Carreras { get; set; }
         public DbSet<Curso> Cursos { get; set; }
-        public DbSet<CursoPrerrequisito> CursoPrerrequisitos { get; set; }
         public DbSet<Estudiante> Estudiantes { get; set; }
         public DbSet<Matricula> Matriculas { get; set; }
         public DbSet<MatriculaDetalle> MatriculaDetalles { get; set; }
