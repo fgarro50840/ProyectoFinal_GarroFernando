@@ -18,7 +18,7 @@ namespace ProyectoFinal_GarroFernando.Data
                 }
             }
             //Crear admin
-            var adminEmail = "profesot@gmail.com";
+            var adminEmail = "profesor@gmail.com";
             var adminPassword = "Profe@123";
             if (await userManager.FindByEmailAsync(adminEmail) == null)
             {
