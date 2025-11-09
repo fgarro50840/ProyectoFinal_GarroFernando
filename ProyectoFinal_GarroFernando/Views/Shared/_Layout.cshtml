@@ -8,43 +8,85 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProyectoFinal_GarroFernando.styles.css" asp-append-version="true" />
 </head>
+
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProyectoFinal_GarroFernando</a>
+        <nav class="navbar navbar-expand-sm navbar-dark border-bottom box-shadow mb-3"
+             style="background-color:#176C8C; ">
+            <div class="container-fluid" 
+                style="background-color:#176c8c;">
+                <a class="header-info" asp-area="" asp-controller="Home" asp-action="Index">Menú principal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - ProyectoFinal_GarroFernando - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+
+
+    <footer class="border-top footer" style="background-color:#176C8C;">
+        <div class="container text-center py-2">
+            <span class="footer-info">
+                Sistema de gestión universitaria, 2025 
+            </span>
         </div>
     </footer>
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+
+<style>
+
+    .footer-info {
+        display: inline-block;
+        background: #e9ecef;
+        color: #176C8C;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: .22rem .80rem;
+        border-radius: 10px;
+        border: 2px solid #0f4e61;
+    }
+
+    <style >
+
+    .header-info {
+        display: inline-block;
+        background: #e9ecef;
+        color: #176C8C;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: .22rem .80rem;
+        border-radius: 10px;
+        border: 2px solid #0f4e61;
+        text-decoration: none !important;
+    }
+
+</style>
+
+</style>

@@ -10,17 +10,31 @@
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            <button  type="submit" class="nav-link btn btn-link text-dark">Cerrar Sesión</button>
         </form>
     </li>
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <li>
+        <a class="header-info" asp-area="Identity" asp-page="/Account/Login">Iniciar Sesión</a>
     </li>
 }
 </ul>
+
+
+<style>
+
+    .header-info {
+        display: inline-block;
+        background: #e9ecef;
+        color: #176C8C;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: .22rem .80rem;
+        border-radius: 10px;
+        border: 2px solid #0f4e61;
+        text-decoration: none !important;
+    }
+
+</style>
