@@ -1,0 +1,55 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 160px);" ">
+    <div class="col-md-4 register-box">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Registro de usuario</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="Correo electrónico" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Correo electrónico</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="Nueva contraseña" aria-required="true" placeholder="Contraseña" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="Nueva contraseña" aria-required="true" placeholder="Contraseña" />
+                <label asp-for="Input.ConfirmPassword">Confirmar contraseña</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar usuario</button>
+        </form>
+    </div>
+    
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+    <style>
+
+        .register-box {
+            background: #e9ecef;
+            color: #176C8C;
+            border: 2px solid #0f4e61;
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            font-weight: 700;
+            max-width: 980px;
+            margin: auto;
+            position: relative;
+            top: 50%;
+        }
+
+    </style>
