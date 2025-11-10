@@ -1,15 +1,33 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 160px);">
-    <div class="welcome-box text-center">
-        <h5>Bienvenido al Sistema de gestión de matrícula!!</h5>
-        <p>Favor inicie sesión para continuar con el proceso…</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: calc(100vh - 160px);">
+
+        <h1 class="text-center" style="color:#176C8C; margin:3rem 0;">Menú principal</h1>
+        <a class="welcome-box" asp-area="" asp-controller="Carreras" asp-action="Index">Configuración de carreras</a>
+        <a class="welcome-box" asp-area="Identity" asp-page="/Account/Login">Configuración de cursos</a>
+        <a class="welcome-box" asp-area="Identity" asp-page="/Account/Login">Configuración de estudiantes</a>
+        <a class="welcome-box" asp-area="Identity" asp-page="/Account/Login">Configuración de profesores</a>
+        <a class="welcome-box" asp-area="Identity" asp-page="/Account/Login">Configuración de matrículas</a>
+        <a class="welcome-box" asp-area="Identity" asp-page="/Account/Login">Configuración de detalles de matrícula</a>
+
     </div>
-</div>
-
-
+}
+else
+{
+    <div class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 160px);">
+        <div class="welcome-box text-center">
+            <h5>Bienvenido al Sistema de gestión de matrícula!!</h5>
+            <p>Favor inicie sesión para continuar con el proceso…</p>
+        </div>
+    </div>
+}
 
 
 <style>
@@ -22,10 +40,11 @@
         padding: 1.25rem 1.5rem;
         font-weight: 700;
         max-width: 980px;
-        margin: auto;
+        margin: .50rem 0;
         position: relative;
         top: 50%; 
-        transform: translateY(-50%); 
+        transform: translateY(-50%);
+        text-decoration: none !important;
     }
 
         .welcome-box h5 {
