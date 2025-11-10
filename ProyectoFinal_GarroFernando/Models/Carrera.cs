@@ -17,7 +17,7 @@ namespace ProyectoFinal_GarroFernando.Models
         public string Codigo { get; set; }
 
         [Required(ErrorMessage = "El estado de la carrera es obligatorio.")]
-        public bool Activa { get; set; }
+        public bool Activa { get; set; } = true;
 
         [ValidateNever]
         public ICollection<Curso> Cursos { get; set; }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_GarroFernando.Data;
 using ProyectoFinal_GarroFernando.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 
 namespace ProyectoFinal_GarroFernando.Controllers
 {
@@ -22,7 +23,13 @@ namespace ProyectoFinal_GarroFernando.Controllers
         // GET: Carreras
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Carreras.ToListAsync());
+            if (User.IsInRole("Profesor"))
+            {
+                return View(await _context.Carreras.ToListAsync());
+            } else
+            {
+                return View(await _context.Carreras.Where(c => c.Activa == true).ToListAsync());
+            }
         }
 
         // GET: Carreras/Details/5

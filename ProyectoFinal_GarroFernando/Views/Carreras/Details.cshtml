@@ -4,33 +4,35 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Carrera</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Activa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Activa)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="card mt-5 col-md-6 mx-auto">
+    <div class="card-header">
+        <h3 class="card-title">Datos de la carrera</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-10">
+                Nombre:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-10">
+                Código:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Codigo)
+            </dd>
+            <dt class="col-sm-10">
+                Estado actual:
+            </dt>
+            <dd class="col-sm-10">
+                @(Model.Activa ? "Activa" : "Desactiva")
+            </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-danger btn-block">Volver a la lista principal</a>
+    </div>
 </div>
