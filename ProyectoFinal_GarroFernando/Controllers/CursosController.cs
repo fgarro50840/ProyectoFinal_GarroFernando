@@ -48,7 +48,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
         // GET: Cursos/Create
         public IActionResult Create()
         {
-            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Codigo");
+            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Codigo", curso.CarreraId);
+            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Nombre", curso.CarreraId);
             return View(curso);
         }
 
@@ -82,7 +82,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
             {
                 return NotFound();
             }
-            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Codigo", curso.CarreraId);
+            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Nombre", curso.CarreraId);
             return View(curso);
         }
 
@@ -118,7 +118,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Codigo", curso.CarreraId);
+            ViewData["CarreraId"] = new SelectList(_context.Carreras, "Id", "Nombre", curso.CarreraId);
             return View(curso);
         }
 

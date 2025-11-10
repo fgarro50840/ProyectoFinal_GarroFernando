@@ -9,11 +9,11 @@ namespace ProyectoFinal_GarroFernando.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El nombre del curso es obligatorio")]
-        [StringLength(20, ErrorMessage = "El nombre del curso no puede exceder los 20 caracteres")]
+        [StringLength(50, ErrorMessage = "El nombre del curso no puede exceder los 50 caracteres")]
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El código del curso es obligatorio")]
-        [StringLength(10, ErrorMessage = "El código del curso no puede exceder los 10 caracteres")]
+        [StringLength(15, ErrorMessage = "El código del curso no puede exceder los 15 caracteres")]
         public string Codigo { get; set; }
 
         [Required(ErrorMessage = "Los créditos del curso son obligatorios")]
