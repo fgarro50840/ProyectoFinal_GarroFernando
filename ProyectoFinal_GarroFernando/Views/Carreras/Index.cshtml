@@ -65,7 +65,15 @@
         </table>
     </div>
     <div class="card-footer">
-        <a asp-action="Create" class="btn btn-primary btn-block">Agregar nueva carrera</a>
+        @if (User.IsInRole("Profesor"))
+        {
+            <a asp-action="Create" class="btn btn-primary btn-block">Agregar nueva carrera</a>
+        } else
+        {
+            <div class="card-footer">
+                <a class="btn btn-danger btn-block" asp-area="" asp-controller="Home" asp-action="Index">Volver al menú principal"</a>
+            </div>
+        }
     </div>
 </div>
 
