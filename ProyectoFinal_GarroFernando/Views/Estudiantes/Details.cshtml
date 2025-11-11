@@ -10,19 +10,19 @@
     <h4>Estudiante</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-10">
             @Html.DisplayNameFor(model => model.Usuario)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Usuario.Apellido1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.FechaInscripcion)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaInscripcion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Activo)
         </dt>
         <dd class = "col-sm-10">
@@ -33,4 +33,35 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+
+<div class="card mt-5 col-md-6 mx-auto">
+    <div class="card-header">
+        <h3 class="card-title">Datos del estudiante</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-10">
+                Nombre de usuario:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.Nombre)
+            </dd>
+            <dt class="col-sm-10">
+                Fecha de inscripción:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaInscripcion)
+            </dd>
+            <dt class="col-sm-10">
+                Estado actual:
+            </dt>
+            <dd class="col-sm-10">
+                @(Model.Activo ? "Activa" : "Desactiva")
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-danger btn-block">Volver a la lista principal</a>
+    </div>
 </div>

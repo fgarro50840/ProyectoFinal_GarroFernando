@@ -49,7 +49,11 @@ namespace ProyectoFinal_GarroFernando.Controllers
         public IActionResult Create()
         {
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1");
-            return View();
+            var model = new Estudiante
+            {
+                FechaInscripcion = DateTime.Now
+            };
+            return View(model);
         }
 
         // POST: Estudiantes/Create
