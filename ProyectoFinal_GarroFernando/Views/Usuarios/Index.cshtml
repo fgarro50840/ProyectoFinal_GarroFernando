@@ -4,68 +4,81 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="card mt-auto col-md-auto mx-auto">
+    <div class="card-header">
+        <h3 class="card-title">Lista de usuarios actuales:</h3>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre completo:
+                    </th>
+                    <th>
+                        Correo electrónico:
+                    </th>
+                    <th>
+                        Teléfono:
+                    </th>
+                    <th>
+                        Edad:
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.Apellido1) @Html.DisplayFor(modelItem => item.Apellido2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td>
+                            @{
+                                string edadTxt = "-";                               
+                                var hoy = DateTime.Today;
+                                var fn = item.FechaNacimiento.Date;
+                                int edad = hoy.Year - fn.Year;
+                                if (hoy < fn.AddYears(edad)) edad--;
+                                edadTxt = $"{edad} años";               
+                            }
+                            @edadTxt
+                        </td>
+                        <td>
+                            @if (User.IsInRole("Profesor"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            }
+                            |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalles</a> |
+                            @if (User.IsInRole("Profesor"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Borrar</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        @if (User.IsInRole("Profesor"))
+        {
+            <a asp-action="Create" class="btn btn-primary btn-block">Agregar nuevo usuario</a>
+        }
+        else
+        {
+            <div class="card-footer">
+                <a class="btn btn-danger btn-block" asp-area="" asp-controller="Home" asp-action="Index">Volver al menú principal"</a>
+            </div>
+        }
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Identificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaNacimiento)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Identificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

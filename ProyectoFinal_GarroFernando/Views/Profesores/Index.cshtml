@@ -14,13 +14,13 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Usuario)
+                        Nombre:
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Especialidad)
+                        Especialidad:
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Activo)
+                        Estado actual:
                     </th>
                     <th></th>
                 </tr>
@@ -30,7 +30,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Usuario.Apellido1)
+                            @($"{item.Usuario?.Nombre} {item.Usuario?.Apellido1} {item.Usuario?.Apellido2}".Trim())
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Especialidad)
@@ -38,11 +38,11 @@
                         <td>
                             @if (item.Activo)
                             {
-                                <span>Activa</span>
+                                <span>Activo</span>
                             }
                             else
                             {
-                                <span>Desactiva</span>
+                                <span>Inactivo</span>
                             }
                         </td>
                         <td>

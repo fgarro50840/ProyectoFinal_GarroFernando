@@ -48,7 +48,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
         // GET: Estudiantes/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre");
             var model = new Estudiante
             {
                 FechaInscripcion = DateTime.Now
@@ -69,7 +69,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", estudiante.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", estudiante.UsuarioId);
             return View(estudiante);
         }
 

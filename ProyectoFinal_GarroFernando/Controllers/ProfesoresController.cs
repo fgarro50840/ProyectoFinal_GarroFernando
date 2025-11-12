@@ -48,7 +48,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
         // GET: Profesores/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", profesor.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", profesor.UsuarioId);
             return View(profesor);
         }
 
@@ -82,7 +82,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", profesor.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", profesor.UsuarioId);
             return View(profesor);
         }
 
@@ -118,7 +118,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", profesor.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", profesor.UsuarioId);
             return View(profesor);
         }
 
