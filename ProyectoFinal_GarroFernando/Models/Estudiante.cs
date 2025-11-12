@@ -15,7 +15,7 @@ namespace ProyectoFinal_GarroFernando.Models
         public Usuario Usuario { get; set; }
 
         public DateTime FechaInscripcion { get; set; }
-
+        [ValidateNever]
         public ICollection<Matricula> Matriculas { get; set; }
 
         public bool Activo { get; set; }

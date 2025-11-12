@@ -29,7 +29,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Usuario.Apellido1)
+                            @($"{item.Usuario?.Nombre} {item.Usuario?.Apellido1} {item.Usuario?.Apellido2}".Trim())
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.FechaInscripcion)

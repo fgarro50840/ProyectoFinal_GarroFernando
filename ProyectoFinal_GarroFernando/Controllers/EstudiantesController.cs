@@ -86,7 +86,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", estudiante.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", estudiante.UsuarioId);
             return View(estudiante);
         }
 
@@ -122,7 +122,7 @@ namespace ProyectoFinal_GarroFernando.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido1", estudiante.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nombre", estudiante.UsuarioId);
             return View(estudiante);
         }
 
